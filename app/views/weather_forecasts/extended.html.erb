@@ -1,0 +1,15 @@
+<h1><%= @weather_forecast.location %></h1>
+
+<%= render partial: "realtime_forecast" %>
+
+<dl>
+  <% @weather_forecast.daily_extended_forecast.each do |daily_forecast| %>
+    <dt>
+      <%= time_tag daily_forecast.dig('time').to_date %>
+    </dt>
+    <dd>Low: <%= daily_forecast.dig('values', 'temperatureMin') %></dd>
+    <dd>High: <%= daily_forecast.dig('values', 'temperatureMax') %></dd>
+  <% end %>
+</dl>
+
+<%= link_to 'New Search', new_weather_forecast_path %>

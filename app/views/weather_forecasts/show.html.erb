@@ -1,17 +1,6 @@
 <h1><%= @weather_forecast.location %></h1>
-<dl>
-  <dt>Temperature</dt>
-  <dd><%= @weather_forecast.temperature(scale=:celcius).round %> C</dd>
-  <dd><%= @weather_forecast.temperature.round %> F</dd>
-</dl>
 
-<p>
-  Cached?
-  <% if Rails.cache.exist?(@weather_forecast.location) %>
-    <span>Yes</span>
-  <% else %>
-    <b style="color: red;">No</b>
-  <% end %>
-</p>
+<%= render partial: "realtime_forecast" %>
 
+<%= link_to 'Extended Forecast', extended_weather_forecast_path(@weather_forecast) %> | 
 <%= link_to 'New Search', new_weather_forecast_path %>

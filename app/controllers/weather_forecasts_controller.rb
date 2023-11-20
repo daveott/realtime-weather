@@ -3,7 +3,7 @@
 # A controller that handles retrieving weather forecasts
 class WeatherForecastsController < ApplicationController
   def create
-    @weather_forecast ||= WeatherForecast.find_or_initialize_by(
+    @weather_forecast = WeatherForecast.find_or_initialize_by(
       location: location.city_state
     )
 
@@ -11,13 +11,18 @@ class WeatherForecastsController < ApplicationController
       @weather_forecast.update_forecast!
       redirect_to @weather_forecast
     else
-      render 'new'
+      render :new, status: 422
     end
   end
 
   def show
     @weather_forecast = WeatherForecast.find(params[:id])
     @weather_forecast.update_forecast!
+  end
+
+  def extended
+    @weather_forecast = WeatherForecast.find(params[:id])
+    @weather_forecast.update_extended_forecast!
   end
 
   private

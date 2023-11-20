@@ -7,10 +7,11 @@ API_KEY = 'osJ5n2tnu3ntYIoWF6PMTTxPL8gDU8Xc'
 
 # A class that handles retrieving weather forecasts from the Tomorrow.io API
 class TomorrowIo
-  attr_reader :location
+  attr_reader :location, :extended_forecast
 
-  def initialize(location)
+  def initialize(location, extended_forecast: false)
     @location = CGI.escape(location)
+    @extended_forecast = extended_forecast
   end
 
   alias extended_forecast? extended_forecast
