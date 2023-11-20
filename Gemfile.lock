@@ -268,6 +268,7 @@ GEM
     xpath (3.2.0)
       nokogiri (~> 1.8)
     zeitwerk (2.6.12)
+    zip-codes (0.3.1)
 
 PLATFORMS
   aarch64-linux
@@ -294,6 +295,7 @@ DEPENDENCIES
   turbo-rails
   tzinfo-data
   web-console
+  zip-codes
 
 RUBY VERSION
    ruby 3.2.2p53
