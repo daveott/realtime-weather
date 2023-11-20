@@ -72,3 +72,4 @@ group :test do
   gem "shoulda-matchers", "~> 5.3"
 end
 
+gem "geocoder", "~> 1.8"
