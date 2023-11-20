@@ -1,0 +1,7 @@
+<h1>Weather Forecast</h1>
+
+<%= form_with scope: :weather_forecast, url: weather_forecasts_path do |f| %>
+  <%= f.label :location %>
+  <%= f.text_field :location %>
+  <%= f.submit "Get Forecast" %>
+<% end %>
